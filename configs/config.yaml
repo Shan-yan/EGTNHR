@@ -1,0 +1,98 @@
+experiment: full_dyphrag
+dataset: synthetic
+task: disease_pair_binary
+seed: 42
+output_dir: results/dyphrag_default
+
+data:
+  version: "1.0"
+  prepared_jsonl: null
+  train_size: 24
+  validation_size: 8
+  test_size: 8
+  max_train_examples: null
+  max_validation_examples: null
+  max_test_examples: null
+
+model:
+  mode: full_dyphrag
+  hidden_dim: 32
+
+retrieval:
+  self_enabled: true
+  peer_enabled: true
+  medical_enabled: true
+  prior_enabled: true
+  disease_conditioned: true
+  prediction_time_conditioned: true
+  mask_peer_target: true
+  peer_candidate_k: 6
+  medical_mode: hybrid
+  medical_corpus: null
+  max_total_k: 9
+  fixed_top_k: null
+  max_iterations: 2
+  iterative: true
+  frozen: false
+  random_control: false
+  shuffle_across_patients: false
+
+router:
+  mode: learned_soft
+  stop_threshold: 0.65
+  evidence_sufficiency_threshold: 0.65
+  source_gate_threshold: 0.5
+  retrieval_gate_threshold: 0.5
+
+hypergraph:
+  encoder: heterogeneous_transformer
+  numeric_state: true
+  numeric_encoder: continuous_mlp
+  cohort: true
+  visit_only: false
+  temporal_encoding: true
+  update_operator: add_deactivate_reweight
+  deactivation_threshold: 0.05
+
+evidence:
+  include_refute: true
+  include_differential: true
+  polarity_classifier: true
+  consistency_loss: true
+  reliability_weighting: true
+  abstention: true
+  abstention_threshold: 0.8
+
+losses:
+  classification: 1.0
+  retrieval: 0.1
+  routing: 0.001
+  support_refute: 0.1
+  consistency: 0.1
+  calibration: 0.05
+  selective: 0.05
+  polarity: 0.1
+  retrieval_cost: 0.005
+
+training:
+  epochs: 2
+  learning_rate: 0.002
+  max_grad_norm: 1.0
+  checkpoint_every_steps: 1
+  monitor: auprc
+
+evaluation:
+  bootstrap_samples: 20
+  calibration_max_iterations: 50
+  minimum_selective_coverage: 0.8
+
+runtime:
+  device: auto
+  resume: true
+  progress: true
+  interrupt_after_steps: 0
+
+tracking:
+  enabled: true
+  wandb: false
+  wandb_mode: offline

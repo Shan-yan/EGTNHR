@@ -1,0 +1,5 @@
+model:
+  mode: full_dyphrag
+
+hypergraph:
+  numeric_encoder: disease_conditioned

@@ -1,0 +1,11 @@
+model:
+  mode: visit_hypergraph
+retrieval:
+  self_enabled: false
+  peer_enabled: false
+  medical_enabled: false
+  max_iterations: 1
+hypergraph:
+  encoder: hgnn
+  update_operator: static
+

@@ -1,0 +1,12 @@
+model:
+  mode: static_heterogeneous_graph
+retrieval:
+  self_enabled: false
+  peer_enabled: false
+  medical_enabled: false
+  prior_enabled: false
+  max_iterations: 1
+hypergraph:
+  encoder: clique
+  cohort: false
+  update_operator: static

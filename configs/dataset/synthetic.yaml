@@ -1,0 +1,7 @@
+data:
+  version: "1.0"
+  prepared_jsonl: null
+  train_size: 24
+  validation_size: 8
+  test_size: 8
+

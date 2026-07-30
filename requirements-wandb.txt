@@ -1,0 +1,2 @@
+# Optional remote experiment tracking. Core runs remain local/offline.
+wandb>=0.17,<1

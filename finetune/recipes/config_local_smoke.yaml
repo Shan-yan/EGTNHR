@@ -1,0 +1,44 @@
+# Single-GPU functional validation for an 8 GB RTX 5070 Laptop GPU.
+# This checks the KARE training path; it is not the paper's full 7B experiment.
+model_name_or_path: Qwen/Qwen2-0.5B-Instruct
+model_revision: main
+torch_dtype: bfloat16
+use_flash_attention_2: false
+
+use_peft: true
+lora_r: 8
+lora_alpha: 16
+lora_dropout: 0.05
+lora_target_modules:
+  - q_proj
+  - k_proj
+  - v_proj
+  - o_proj
+
+chat_template: "{% for message in messages %}\n{% if message['role'] == 'user' %}\n{{ '<|user|>\n' + message['content'] + eos_token }}\n{% elif message['role'] == 'system' %}\n{{ '<|system|>\n' + message['content'] + eos_token }}\n{% elif message['role'] == 'assistant' %}\n{{ '<|assistant|>\n' + message['content'] + eos_token }}\n{% endif %}\n{% if loop.last and add_generation_prompt %}\n{{ '<|assistant|>' }}\n{% endif %}\n{% endfor %}"
+preprocessing_num_workers: 2
+
+bf16: true
+do_eval: true
+eval_strategy: steps
+eval_steps: 10
+gradient_accumulation_steps: 4
+gradient_checkpointing: true
+gradient_checkpointing_kwargs:
+  use_reentrant: false
+learning_rate: 2.0e-5
+logging_steps: 1
+max_seq_length: 128
+max_steps: 20
+output_dir: data/outputs/local-smoke
+overwrite_output_dir: true
+per_device_eval_batch_size: 1
+per_device_train_batch_size: 1
+push_to_hub: false
+remove_unused_columns: true
+report_to: []
+save_strategy: steps
+save_steps: 10
+save_total_limit: 1
+seed: 42
+warmup_ratio: 0.1

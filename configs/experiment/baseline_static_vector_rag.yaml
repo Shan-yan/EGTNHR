@@ -1,0 +1,12 @@
+model:
+  mode: static_vector_rag
+retrieval:
+  medical_mode: vector
+  fixed_top_k: 3
+  max_iterations: 1
+  iterative: false
+router:
+  mode: uniform
+hypergraph:
+  update_operator: static
+

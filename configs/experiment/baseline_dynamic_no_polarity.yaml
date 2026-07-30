@@ -1,0 +1,7 @@
+model:
+  mode: dynamic_no_polarity
+evidence:
+  include_refute: false
+  include_differential: false
+  polarity_classifier: false
+

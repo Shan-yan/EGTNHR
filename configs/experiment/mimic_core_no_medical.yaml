@@ -1,0 +1,7 @@
+# Honest adaptation for supplied core tables without labs/vitals or a licensed medical corpus.
+model:
+  mode: dyphrag_mimic_core
+retrieval:
+  medical_enabled: false
+hypergraph:
+  numeric_state: false

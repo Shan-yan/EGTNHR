@@ -1,0 +1,2 @@
+{"input":"Mortality task. Patient has uncomplicated controlled diabetes and no acute organ failure. Predict 0 or 1.","output":"# Reasoning #\nNo critical illness is present.\n# Prediction #\n0"}
+{"input":"Readmission task. Patient has worsening heart failure despite treatment and several admissions this month. Predict 0 or 1.","output":"# Reasoning #\nPersistent instability and recent admissions signal early return risk.\n# Prediction #\n1"}

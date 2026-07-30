@@ -1,0 +1,11 @@
+model:
+  mode: ehr_transformer
+retrieval:
+  self_enabled: false
+  peer_enabled: false
+  medical_enabled: false
+  prior_enabled: false
+  max_iterations: 1
+hypergraph:
+  cohort: false
+  update_operator: static

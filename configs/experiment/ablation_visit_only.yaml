@@ -1,0 +1,5 @@
+hypergraph:
+  visit_only: true
+  numeric_state: false
+  cohort: false
+

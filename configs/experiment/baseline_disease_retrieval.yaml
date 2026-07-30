@@ -1,0 +1,8 @@
+model:
+  mode: disease_conditioned_retrieval
+retrieval:
+  max_iterations: 1
+  iterative: false
+hypergraph:
+  update_operator: static
+

@@ -1,0 +1,7 @@
+# Research runtime layered on top of requirements.txt.
+tensorboard==2.18.0
+mlflow==2.19.0
+pytest==8.3.4
+ruff==0.8.6
+rich==13.9.4
+psutil==7.0.0

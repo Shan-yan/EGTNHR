@@ -1,0 +1,14 @@
+model:
+  mode: kare_adapted
+retrieval:
+  self_enabled: false
+  peer_enabled: true
+  medical_enabled: true
+  prior_enabled: false
+  fixed_top_k: 3
+  max_iterations: 1
+  iterative: false
+router:
+  mode: uniform
+hypergraph:
+  update_operator: static

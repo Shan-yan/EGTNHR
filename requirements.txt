@@ -1,0 +1,20 @@
+# CPU-side preprocessing, graph retrieval, API and evaluation dependencies.
+# PyTorch is installed separately by scripts/setup_env.sh. The default CPU
+# wheel keeps setup small; set KARE_TORCH_BACKEND=cu128 for the RTX 5070.
+numpy==1.26.4
+pandas==2.2.3
+scipy==1.12.0
+scikit-learn==1.5.2
+networkx==3.4.2
+tqdm==4.67.1
+pyhealth==1.1.2
+openai==1.59.9
+boto3==1.35.99
+botocore==1.35.99
+faiss-cpu==1.9.0.post1
+graspologic==3.4.1
+future==1.0.0
+langdetect==1.0.9
+requests==2.32.3
+flask==3.1.0
+sentence-transformers==3.3.1

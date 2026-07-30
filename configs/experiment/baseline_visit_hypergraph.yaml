@@ -1,0 +1,13 @@
+model:
+  mode: visit_hypergraph
+retrieval:
+  self_enabled: false
+  peer_enabled: false
+  medical_enabled: false
+  prior_enabled: false
+  max_iterations: 1
+hypergraph:
+  visit_only: true
+  numeric_state: false
+  cohort: false
+  update_operator: static

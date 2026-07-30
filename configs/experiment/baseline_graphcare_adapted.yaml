@@ -1,0 +1,16 @@
+model:
+  mode: graphcare_adapted
+retrieval:
+  self_enabled: true
+  peer_enabled: false
+  medical_enabled: true
+  prior_enabled: false
+  medical_mode: graph
+  fixed_top_k: 3
+  max_iterations: 1
+  iterative: false
+router:
+  mode: uniform
+hypergraph:
+  encoder: clique
+  update_operator: static
